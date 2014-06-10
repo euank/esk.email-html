@@ -1,0 +1,29 @@
+include util.jade
+mixin menuitem(ref, active, text)
+  li: a(href=ref,class=(active==ref)?'pure-menu-selected':'')= text
+
+mixin header(title, active)
+  doctype html5
+  html
+    head
+      title= title
+      +css('css/pure.min.css')
+      +css('css/app.css')
+    body
+      #menu
+        .pure-menu.pure-menu-open
+          a.pure-menu-heading(href='/') Esk Email
+          ul
+            +menuitem('/', active, "Home")
+            +menuitem('/pricing', active, "Pricing")
+            +menuitem('/docs', active, "Documentation")
+            +menuitem('/opensource', active, "Source Code")
+            +menuitem('/security', active, "Security")
+            +menuitem('/privacy', active, "Privacy")
+            +menuitem('/contact', active, "Contact")
+            li: small.pure-menu-heading Offsite Links
+            li.menu-item-divided
+            +menuitem('/mail/', active, "Webmail")
+      #content.pure-u-4-5
+        block
+

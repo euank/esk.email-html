@@ -1,0 +1,41 @@
+html {
+  color: #2a2a2a;
+}
+
+#menu {
+  width: 180px;
+  left: 180px;
+  margin-left: -180px;
+  position: fixed;
+}
+
+#header {
+  text-align: center;
+}
+
+#content {
+  margin-left: 200px;
+  box-sizing: border-box;
+}
+h1 {
+  color: #555;
+}
+h2 {
+  color: #777;
+}
+
+p {
+  text-align: left;
+}
+p.indent {
+  text-indent: 3em;
+}
+
+body {
+  margin: 0px 50px 20px 0px;
+  background-image: url('/imgs/bg-light.png');
+}
+
+.pure-menu-selected {
+  background: #dad !important;
+}
