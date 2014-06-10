@@ -1,0 +1,26 @@
+include includes/header.jade
++header('Esk Email - Source Code', '/docs')
+  #header
+    h1 Source Code
+    h2
+      |What makes us tick
+
+    p As part of our commitment to transparency, we have attempted to make as much of the code and information about this service publicly available.
+
+    p We welcome pull requests for any components that we manage! We're also willing to apply patches to other projects (such as iRedMail) if deemed appropriate, and would be happy to take suggestions and code from you. Thank you!
+
+    p The following projects are used in running this service:
+    ul
+      li: a(href="http://www.postfix.org/") Postfix
+        |  - Used to handle email sending and recieving.
+      li: a(href="http://www.dovecot.org/") Dovecot
+        |  - Allows users to access their emails over POP3 or IMAP. It also provides seive rules, folders, and so on.
+      li: a(href='http://www.iredmail.org/') iRedMail
+        |  - Streamlined setting up much of the involved software and provided a good starting point.
+      li: a(href="https://github.com/euank/meruapi") meruapi
+        |  - This backend allows domain invites, password changing, and other features.
+      li: a(href="https://github.com/euank/meruhtml") meruhtml
+        |  - This webpage interfaces with meruapi to provide a UI to access its features.
+      li: ahref("https://github.com/euank/esk.email-html") esk.email-html
+        |  - This site! ... minus what the above software provides.
+
