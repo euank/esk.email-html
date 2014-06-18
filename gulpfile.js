@@ -36,7 +36,7 @@ gulp.task('minify-css', function() {
   .pipe(gulp.dest('./dist/css/'));
 });
 
-gulp.task('copy-to-www', function() {
+gulp.task('copy-to-www', ['default'], function() {
   return gulp.src('./dist/**')
   .pipe(gulp.dest('/var/www/esk.email/'));
 });
@@ -44,4 +44,4 @@ gulp.task('copy-to-www', function() {
 
 gulp.task('default', ['jade', 'minify-js', 'minify-css', 'copy-imgs']);
 
-gulp.task('deploy', ['default', 'copy-to-www']);
+gulp.task('deploy', ['copy-to-www']);
