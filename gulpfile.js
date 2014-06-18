@@ -8,7 +8,7 @@ var minifyCSS = require('gulp-minify-css');
 gulp.task('jade', function() {
   var locals = {};
 
-  return gulp.src('*.jade')
+  return gulp.src('templates/*.jade')
   .pipe(jade({
     locals: locals
   }))
