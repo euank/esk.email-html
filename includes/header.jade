@@ -2,6 +2,10 @@ include util.jade
 mixin menuitem(ref, active, text)
   li: a(href=ref,class=(active==ref)?'pure-menu-selected':'')= text
 
+mixin menuheader(name)
+  li: small.pure-menu-heading= name
+  li.menu-item-divided
+
 mixin header(title, active)
   doctype html5
   html
@@ -20,9 +24,14 @@ mixin header(title, active)
             +menuitem('/security', active, "Security")
             +menuitem('/privacy', active, "Privacy")
             +menuitem('/contact', active, "Contact")
-            li: small.pure-menu-heading Offsite Links
-            li.menu-item-divided
+
+
+            +menuheader("User Links")
+            +menuitem('/manage', active, "Manage Account")
             +menuitem('/mail/', active, "Webmail")
+
+            +menuheader("Admin Links")
+            +menuitem('/admin', active, "Manage Domain")
       #content.pure-u-4-5
         block
 
