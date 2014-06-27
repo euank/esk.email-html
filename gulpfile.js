@@ -4,6 +4,7 @@ var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 var minifyCSS = require('gulp-minify-css');
+var watch = require('gulp-watch');
 
 gulp.task('jade', function() {
   var locals = {};
@@ -39,6 +40,23 @@ gulp.task('minify-css', function() {
 gulp.task('copy-to-www', ['default'], function() {
   return gulp.src('./dist/**')
   .pipe(gulp.dest('/var/www/esk.email/'));
+});
+
+gulp.task('watch', [], function() {
+  var globTasks = [
+    'css/*.css', 'minify-css',
+    'imgs/*', 'copy-imgs',
+    'templates/*.jade', 'jade',
+    'js/*.js', 'minify-js'
+  ];
+  for(var i=0;i<globTasks.length;i+=2) {
+    console.log(globTasks[i]);
+    var toStart = globTasks[i+1];
+    watch({glob: globTasks[i]}, function(){
+      console.log("Starting " + toStart);
+      gulp.start(toStart);
+    });
+  }
 });
 
 
