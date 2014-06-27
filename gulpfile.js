@@ -49,14 +49,15 @@ gulp.task('watch', [], function() {
     'templates/*.jade', 'jade',
     'js/*.js', 'minify-js'
   ];
+  globTaskPairs = [];
   for(var i=0;i<globTasks.length;i+=2) {
-    console.log(globTasks[i]);
-    var toStart = globTasks[i+1];
-    watch({glob: globTasks[i]}, function(){
-      console.log("Starting " + toStart);
-      gulp.start(toStart);
-    });
+    globTaskPairs.push([globTasks[i], globTasks[i+1]]);
   }
+  globTaskPairs.forEach(function(pair) {
+    watch({glob: pair[0]}, function(){
+      gulp.start(pair[1]);
+    });
+  });
 });
 
 
